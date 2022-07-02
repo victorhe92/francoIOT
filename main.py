@@ -36,78 +36,37 @@ class App(customtkinter.CTk):
         # The menu is on the left
         # Windows are on the right
 
-        # configure grid layout (1x2)
-        self.grid_columnconfigure(1, weight=1)
-        self.grid_rowconfigure(0, weight=1)
 
-        self.frame_left = customtkinter.CTkFrame(master=self,
-                                                 width=180,
-                                                 corner_radius=10)
-        self.frame_left.grid(row=0, column=0, sticky="nswe")
         
         self.create_general() #Default window
         self.hide_general()
         self.show_general()
 
-        self.create_plots()
-        self.hide_plots()
-
-        self.create_control()
-        self.hide_control()
-        
-        #=============MENU=====================
-        # ============ frame_left ============
-
-        # configure grid layout (1x11)
-        self.frame_left.grid_rowconfigure(0, minsize=10)   # empty row with minsize as spacing
-        self.frame_left.grid_rowconfigure(5, weight=1)  # empty row as spacing
-        self.frame_left.grid_rowconfigure(8, minsize=20)    # empty row with minsize as spacing
-        self.frame_left.grid_rowconfigure(11, minsize=10)  # empty row with minsize as spacing
-
-        self.label_1 = customtkinter.CTkLabel(master=self.frame_left,
-                                              text="Menú",
-                                              text_font=("Roboto Medium", -16))  # font name and size in px
-        self.label_1.grid(row=1, column=0, pady=10, padx=10)
-
-        self.button_1 = customtkinter.CTkButton(master=self.frame_left,
-                                                text="General",
-                                                command=self.button_general)
-        self.button_1.grid(row=2, column=0, pady=10, padx=20)
-
-        self.button_2 = customtkinter.CTkButton(master=self.frame_left,
-                                                text="Gráficos",
-                                                command=self.button_plots)
-        self.button_2.grid(row=3, column=0, pady=10, padx=20)
-
-        self.button_3 = customtkinter.CTkButton(master=self.frame_left,
-                                                text="Control automático",
-                                                command=self.button_control)
-        self.button_3.grid(row=4, column=0, pady=10, padx=20)
-
-        self.label_mode = customtkinter.CTkLabel(master=self.frame_left, text="Apariencia")
-        self.label_mode.grid(row=9, column=0, pady=0, padx=20, sticky="w")
-
-        self.optionmenu_1 = customtkinter.CTkOptionMenu(master=self.frame_left,
-                                                        values=["Dark","Light" , "System"],
-                                                        command=self.change_appearance_mode)
-        self.optionmenu_1.grid(row=10, column=0, pady=10, padx=20, sticky="w")
 
     #=====GENERAL WINDOWS METHODS=====
     def create_general(self):
+        # configure grid layout (1x1)
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_rowconfigure(0, weight=1)
+
         #Create a general vision frame
         self.frame_general = customtkinter.CTkFrame(master=self)
-        self.frame_general.grid(row=0, column=1, sticky="nswe", padx=20, pady=20)
+        self.frame_general.grid(row=0, column=0,sticky="")
 
         # ============ frame_sensors ============
         
         # configure grid layout (3x2)
-        self.frame_general.rowconfigure((0, 1,), weight=1)
-        self.frame_general.rowconfigure(2, weight=1)
-        self.frame_general.columnconfigure((0, 1), weight=1)
-        self.frame_general.columnconfigure(1, weight=1)
+        #self.frame_general.rowconfigure((0, 1,), weight=1)
+        #self.frame_general.rowconfigure(2, weight=1)
+        #self.frame_general.columnconfigure((0, 1), weight=1)
+        #self.frame_general.columnconfigure(1, weight=1)
 
+        
+        self.frame_general.columnconfigure(1,weight=1)
+        self.frame_general.rowconfigure(2,weight=1)
+        
         self.label_1 = customtkinter.CTkLabel(master=self.frame_general,
-                                              text="General",
+                                              text="Control de microtuneles",
                                               text_font=("Roboto Medium", -16))  # font name and size in px
         self.label_1.grid(row=0, column=0, pady=10, padx=10, columnspan=2)
 
@@ -265,7 +224,7 @@ class App(customtkinter.CTk):
     
        
     def show_general(self):
-        self.frame_general.grid(row=0, column=1, sticky="nswe", padx=20, pady=20)
+        self.frame_general.grid()
 
     def hide_general(self):
         self.frame_general.grid_remove()
