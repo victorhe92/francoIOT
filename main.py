@@ -39,9 +39,7 @@ class App(customtkinter.CTk):
 
         
         self.create_general() #Default window
-        self.hide_general()
-        self.show_general()
-
+       
 
     #=====GENERAL WINDOWS METHODS=====
     def create_general(self):
@@ -51,24 +49,24 @@ class App(customtkinter.CTk):
 
         #Create a general vision frame
         self.frame_general = customtkinter.CTkFrame(master=self)
+        #self.frame_general.grid_propagate(0)
         self.frame_general.grid(row=0, column=0,sticky="")
-
+        
         # ============ frame_sensors ============
         
         # configure grid layout (3x2)
-        #self.frame_general.rowconfigure((0, 1,), weight=1)
-        #self.frame_general.rowconfigure(2, weight=1)
-        #self.frame_general.columnconfigure((0, 1), weight=1)
-        #self.frame_general.columnconfigure(1, weight=1)
-
         
         self.frame_general.columnconfigure(1,weight=1)
         self.frame_general.rowconfigure(2,weight=1)
         
         self.label_1 = customtkinter.CTkLabel(master=self.frame_general,
                                               text="Control de microtuneles",
-                                              text_font=("Roboto Medium", -16))  # font name and size in px
+                                              text_font=("Roboto Medium", -25))  # font name and size in px
         self.label_1.grid(row=0, column=0, pady=10, padx=10, columnspan=2)
+        self.label_1 = customtkinter.CTkLabel(master=self.frame_general,
+                                              text="01-07-2022 23:36",
+                                              text_font=("Roboto Medium", -12))  # font name and size in px
+        self.label_1.grid(row=0, column=0, pady=10, padx=10, columnspan=2,sticky="e")
 
         self.frame_station1 = customtkinter.CTkFrame(master=self.frame_general)
         self.frame_station1.grid(row=1, column=0,pady=20, padx=20, sticky="nsew")
@@ -89,7 +87,7 @@ class App(customtkinter.CTk):
         self.frame_station1.rowconfigure(3,weight=1)
 
         self.lbl_station1_title = customtkinter.CTkLabel(master=self.frame_station1,
-                                              text="Estación 1",
+                                              text="Microtunel 1",
                                               text_font=("Roboto Medium", -20))  # font name and size in px
         self.lbl_station1_title.grid(row=0,column=0,columnspan=2,pady=10)
 
@@ -125,7 +123,7 @@ class App(customtkinter.CTk):
         self.frame_station2.rowconfigure(3,weight=1)
 
         self.lbl_station2_title = customtkinter.CTkLabel(master=self.frame_station2,
-                                              text="Estación 2",
+                                              text="Microtunel 2",
                                               text_font=("Roboto Medium", -20))  # font name and size in px
         self.lbl_station2_title.grid(row=0,column=0,columnspan=2,pady=10)
 
@@ -159,7 +157,7 @@ class App(customtkinter.CTk):
         self.frame_station3.rowconfigure(3,weight=1)
 
         self.lbl_station3_title = customtkinter.CTkLabel(master=self.frame_station3,
-                                              text="Estación 3",
+                                              text="Microtunel 3",
                                               text_font=("Roboto Medium", -20))  # font name and size in px
         self.lbl_station3_title.grid(row=0,column=0,columnspan=2,pady=10)
 
@@ -193,7 +191,7 @@ class App(customtkinter.CTk):
         self.frame_station4.rowconfigure(3,weight=1)
 
         self.lbl_station4_title = customtkinter.CTkLabel(master=self.frame_station4,
-                                              text="Estación 4",
+                                              text="Microtunel 4",
                                               text_font=("Roboto Medium", -20))  # font name and size in px
         self.lbl_station4_title.grid(row=0,column=0,columnspan=2,pady=10)
 
