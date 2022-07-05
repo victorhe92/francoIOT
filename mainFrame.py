@@ -1,5 +1,8 @@
 import tkinter
 import customtkinter
+import json
+import datetime
+import Utils
 
 class mainFrame(customtkinter.CTk):
     WIDTH = 1024
@@ -13,7 +16,7 @@ class mainFrame(customtkinter.CTk):
         self.title("Microtunel control")
         self.geometry(f"{mainFrame.WIDTH}x{mainFrame.HEIGHT}")
         self.protocol("WM_DELETE_WINDOW", self.on_closing)  # call .on_closing() when app gets closed
-        self.overrideredirect(1)
+        #self.overrideredirect(1)
         
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
@@ -59,15 +62,43 @@ class mainFrame(customtkinter.CTk):
                                                         values=["Dark","Light" , "System"],
                                                         command=self.change_appearance_mode)
         self.optionmenu_1.grid(row=10, column=0, pady=10, padx=20, sticky="w")
-
-        
+        f= open(Utils.control_data, "r")
+        x=f.readline()
+        y = json.dumps(x)
+        print(y)
+        f.close()
+        self.clicks =0
        
     def on_closing(self, event=0):
         self.destroy()
 
     def button_start(self):
+        self.clicks =0
         print("General")
-    
+        f= open(Utils.control_data, "a")
+        status = {
+            "id": "1",
+            "t_inicial": "0",
+            "t_final": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "status": "Running"
+        }
+        f.writelines(json.dumps(status)+"\n")
+        f.close()
+        
+        f= open(Utils.control_data, "r")
+        t=0
+        for line in f:
+            self.clicks+=1 
+            t+=1   
+           # last_line=line
+            if("Running" in line):
+               print(line)
+        
+        f.close()
+        tt = Utils.get_last(Utils.control_data)    
+        print("last: "+tt)
+       
+
     def button_control(self):
         print("Control")
 
