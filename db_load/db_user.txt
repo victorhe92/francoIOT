@@ -36,3 +36,8 @@
 {"id": "1", "t_inicial": "0", "t_final": "2022-07-05 04:41:08", "status": "Running"}
 {"id": "1", "t_inicial": "0", "t_final": "2022-07-05 04:41:19", "status": "Running"}
 {"id": "1", "t_inicial": "0", "t_final": "2022-07-05 04:43:13", "status": "Running"}
+{"id": "1", "t_inicial": "0", "t_final": "2022-07-05 04:46:56", "status": "Running"}
+{"id": "1", "t_inicial": "0", "t_final": "2022-07-05 04:46:57", "status": "Running"}
+{"id": "1", "t_inicial": "0", "t_final": "2022-07-05 04:49:19", "status": "Running"}
+{"id": "1", "t_inicial": "0", "t_final": "2022-07-05 04:49:20", "status": "Running"}
+{"id": "1", "t_inicial": "0", "t_final": "2022-07-05 04:49:21", "status": "Running"}

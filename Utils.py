@@ -1,3 +1,5 @@
+import datetime
+
 control_data="db_load/db_user.txt"
 status = {1, 0}
 
@@ -9,3 +11,7 @@ def get_last(db_file):
 def save_in_file(db_file, data):
     with open(db_file, "a") as f:
         f.writelines(data+"\n")
+
+def get_date():
+    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+

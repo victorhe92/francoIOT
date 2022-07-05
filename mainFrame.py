@@ -1,7 +1,7 @@
 import tkinter
 import customtkinter
 import json
-import datetime
+
 import Utils
 
 class mainFrame(customtkinter.CTk):
@@ -73,28 +73,18 @@ class mainFrame(customtkinter.CTk):
         self.destroy()
 
     def button_start(self):
-        self.clicks =0
+   
         print("General")
-        f= open(Utils.control_data, "a")
+
         status = {
             "id": "1",
             "t_inicial": "0",
-            "t_final": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "t_final": Utils.get_date(),
             "status": "Running"
         }
-        f.writelines(json.dumps(status)+"\n")
-        f.close()
-        
-        f= open(Utils.control_data, "r")
-        t=0
-        for line in f:
-            self.clicks+=1 
-            t+=1   
-           # last_line=line
-            if("Running" in line):
-               print(line)
-        
-        f.close()
+
+        Utils.save_in_file(Utils.control_data, json.dumps(status))
+  
         tt = Utils.get_last(Utils.control_data)    
         print("last: "+tt)
        
