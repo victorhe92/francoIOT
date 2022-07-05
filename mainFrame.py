@@ -61,7 +61,13 @@ class mainFrame(customtkinter.CTk):
         self.optionmenu_1.grid(row=10, column=0, pady=10, padx=20, sticky="w")
 
         
-       
+    def show_frame(self,window):
+        self.current_window = window
+        self.current_window.frame.grid(row=0, column=1, pady=10, padx=10)
+
+    def hide_frame(self):
+        self.current_window.frame.destroy()
+
     def on_closing(self, event=0):
         self.destroy()
 
