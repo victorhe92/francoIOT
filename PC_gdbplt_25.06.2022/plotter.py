@@ -1,11 +1,11 @@
 import tkinter
 import matplotlib.pyplot as plt
 import numpy as np
-import time
+
 from tkinter import *
 from tkinter import ttk
 from scipy import interpolate
-
+import time
 root = tkinter.Tk() 
 root.title("Graph")
 root.geometry("800x600")

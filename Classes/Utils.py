@@ -44,3 +44,30 @@ def delete_data(db_file, data):
                 f.writelines(line)
 
 
+def plotGraph(db_file):
+    data = get_plot_data(db_file)
+    x = []
+    y = []
+    for line in data:
+        x.append(line.split(";")[0])
+        y.append(line.split(";")[1])
+        
+    return x, y
+
+def json2data(db_file):
+    data = get_data(db_file)
+    x = []
+    y = []
+    for line in data:
+        x.append(line.split(";")[0])
+        y.append(line.split(";")[1])
+    return x, y
+
+def data2json(db_file, data):
+    with open(db_file, "w") as f:
+        for line in data:
+            f.writelines(line)
+
+def get_random_number(min, max):
+    return random.randint(min, max)
+    
