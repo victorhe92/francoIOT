@@ -35,13 +35,13 @@ class control():
         self.button_create_user = customtkinter.CTkButton(master=self.frame,
                                                     text="Crear usuario",
                                                     command=self.create_user)
-        self.button_create_user.grid(row=3, column=0, columnspan=2)
+        self.button_create_user.grid(row=3, column=2, columnspan=2)
 
 
         self.button_ventilation_change = customtkinter.CTkButton(master=self.frame,
                                                     text=self.__button_ventilation_text,
                                                     command=self.ventilation_change)
-        self.button_ventilation_change.grid(row=3, column=2, columnspan=2)
+        self.button_ventilation_change.grid(row=4, column=2, columnspan=2)
 
          ######## TITLE 2############
         self.label_itinerario = customtkinter.CTkLabel(master=self.frame,   
