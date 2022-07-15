@@ -9,6 +9,10 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, 
 NavigationToolbar2Tk)
 
+from tkinter import *
+from tkinter import ttk
+from scipy import interpolate
+
 class inicio():
     
     t1 = 10
@@ -61,26 +65,35 @@ class inicio():
         self.frame_station1.columnconfigure(1,weight=2)
         self.frame_station1.rowconfigure(2,weight=1)
 
-        self.frame_station1_1 = customtkinter.CTkFrame(master=self.frame_station1)
-        self.frame_station1_1.grid(row=0, column=1,pady=0, padx=0, sticky="nsew")
-     
-        self.fig = Figure(figsize=(1,1.70), dpi=100)
-        self.fig.text(0.5, 0.92, "Station 1", ha='center', va='center_baseline', size=12)
-    
-        
-        self.ax = self.fig.add_subplot(111)
-        self.ax.set_xlabel('Time').set_fontsize(10)
-        self.ax.set_ylabel('Temperature').set_fontsize(10)
-        self.ax.plot(np.random.rand(10))
-        
-        
-        self.canvas = FigureCanvasTkAgg(self.fig, master=self.frame_station1_1)
-       
-        self.canvas.draw()
-        self.canvas.get_tk_widget().pack(side=BOTTOM, fill= BOTH, expand=TRUE)
- 
+        self.lbl_station1_title = customtkinter.CTkLabel(master=self.frame_station1,
+                                              text="Microtunel 1",
+                                              text_font=("Roboto Medium", -20))  # font name and size in px
+        self.lbl_station1_title.grid(row=0,column=0,columnspan=2,pady=10)
 
+        self.lbl_station1_temperature_txt = customtkinter.CTkLabel(master=self.frame_station1,
+                                              text="Temperatura:",
+                                              text_font=("Roboto Medium", -15))  # font name and size in px
+        self.lbl_station1_temperature_txt.grid(row=1,column=0,padx=10,sticky="n")
 
+        self.lbl_station1_humidity_txt = customtkinter.CTkLabel(master=self.frame_station1,
+                                              text="Humedad:",
+                                              text_font=("Roboto Medium", -15))  # font name and size in px
+        self.lbl_station1_humidity_txt.grid(row=1,column=1,padx=10,sticky="n")
+
+        self.lbl_station1_temperature = customtkinter.CTkLabel(master=self.frame_station1,
+                                              text=str(self.t1)+"ºC",
+                                              text_font=("Roboto Medium", -56))  # font name and size in px
+        self.lbl_station1_temperature.grid(row=2,column=0,padx=10,sticky="n")
+
+        self.lbl_station1_humidity = customtkinter.CTkLabel(master=self.frame_station1,
+                                              text="55%",
+                                              text_font=("Roboto Medium", -56))  # font name and size in px
+        self.lbl_station1_humidity.grid(row=2,column=1,padx=10,sticky="n")
+
+        self.button_station1 = customtkinter.CTkButton(master=self.frame_station1,
+                                                text="Detalles",
+                                                command=self.button_event)
+        self.button_station1.grid(row=3, column=0, pady=10, padx=20, columnspan=2)
   
 
 
