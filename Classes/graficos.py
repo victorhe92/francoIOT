@@ -27,6 +27,7 @@ class inicio():
 
         self.frame.grid(row=0, column=1,sticky="nsew",pady=10,padx=10)
         
+        
         # ============ frame_sensors ============
         
         # configure grid layout (3x2)
