@@ -15,12 +15,6 @@ from scipy import interpolate
 
 #engines2d
 
-
-
-
-
-
-
 class inicio():
     
     t1 = 10
@@ -57,16 +51,16 @@ class inicio():
 
         self.frame_station1 = customtkinter.CTkFrame(master=self.frame)
         #self.frame_station1.grid_propagate(0)
-        self.frame_station1.grid(row=0, column=0,pady=20, padx=20, sticky="nsew")
+        self.frame_station1.grid(row=0, column=0,pady=5, padx=5, sticky="nsew")
 
         self.frame_station2 = customtkinter.CTkFrame(master=self.frame)
-        self.frame_station2.grid(row=0, column=1, pady=20, padx=20, sticky="nsew")
+        self.frame_station2.grid(row=0, column=1, pady=5, padx=5, sticky="nsew")
 
         self.frame_station3 = customtkinter.CTkFrame(master=self.frame)
-        self.frame_station3.grid(row=1, column=0, pady=20, padx=20, sticky="nsew")
+        self.frame_station3.grid(row=1, column=0, pady=5, padx=5, sticky="nsew")
 
         self.frame_station4 = customtkinter.CTkFrame(master=self.frame)
-        self.frame_station4.grid(row=1, column=1, pady=20, padx=20, sticky="nsew")
+        self.frame_station4.grid(row=1, column=1, pady=5, padx=5, sticky="nsew")
 
         #==============INFORMATION OF EACH STATION======================
 
@@ -76,10 +70,10 @@ class inicio():
 
         self.frame_station1_1 = customtkinter.CTkFrame(master=self.frame_station1)
         self.frame_station1_1.grid(row=1, column=1,pady=10, padx=10, sticky="nsew")
-     
-        self.fig = Figure(figsize=(1,1.70), dpi=100)
+
+        self.fig = Figure(figsize=(1,2), dpi=80)
         self.fig.text(0.5, 0.92, "Station 1", ha='center', va='center', size=12)
-    
+
         self.ax = self.fig.add_subplot(111)
         
         self.ax.analog_data = np.random.normal(0, 10, 100)
@@ -102,7 +96,7 @@ class inicio():
 
         
         self.frame_station1_2 = customtkinter.CTkFrame(master=self.frame_station2)
-        self.frame_station1_2.grid(row=1, column=1,pady=10, padx=10, sticky="nsew")
+        self.frame_station1_2.grid(row=1, column=1,pady=5, padx=5, sticky="nsew")
      
         self.fig = Figure(figsize=(1,1.70), dpi=100)
         self.fig.text(0.5, 0.92, "Station 1", ha='center', va='center', size=12)

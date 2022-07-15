@@ -96,4 +96,3 @@ class mainFrame(customtkinter.CTk):
 if __name__ == "__main__":
     app = mainFrame()
     app.mainloop()
-    

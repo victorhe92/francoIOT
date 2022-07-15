@@ -5,8 +5,6 @@ from mainFrame import mainFrame
 import datetime
 
 
-
-
 class inicio():
     
     t1 = 10
