@@ -1,6 +1,6 @@
 import tkinter
 import customtkinter
-from mainFrame import mainFrame
+#from mainFrame import mainFrame
 import numpy as np
 import matplotlib.pyplot as plt
 import datetime
