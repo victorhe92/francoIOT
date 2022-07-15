@@ -17,46 +17,25 @@ class control():
         self.frame.grid(row=0, column=1,sticky="nsew",pady=10,padx=10)
 
         ######## TITLE ############
-        self.label_control = customtkinter.CTkLabel(master=self.frame,   
-                                                        text="Control",
+        self.label_usuarios = customtkinter.CTkLabel(master=self.frame,   
+                                                        text="Usuarios",
                                                         text_font=("Roboto Medium", -20))
                        
-        self.label_control.grid(row = 0,column = 0, sticky="",columnspan=4,pady=10)
+        self.label_usuarios.grid(row = 0,column = 0, sticky="",columnspan=4,pady=10)
 
         ###### Each title #####
 
-        self.label_irrigation_title = customtkinter.CTkLabel(master=self.frame,   
-                                                        text="Estado riego:",
+        self.label_listaUsuarios_title = customtkinter.CTkLabel(master=self.frame,   
+                                                        text="Lista de usuarios",
                                                         text_font=("Roboto Medium", -20))
                        
-        self.label_irrigation_title.grid(row = 1,column = 0, sticky="",columnspan=2)
-
-
-        self.label_ventilation_title = customtkinter.CTkLabel(master=self.frame,   
-                                                        text="Estado riego:",
-                                                        text_font=("Roboto Medium", -20))
-                       
-        self.label_ventilation_title.grid(row = 1,column = 2, sticky="",columnspan=2)
-
-        ##### States #####
-
-        self.label_irrigation = customtkinter.CTkLabel(master=self.frame,   
-                                                        text=self.irrigation_state,
-                                                        text_font=("Roboto Medium", -70))
-        
-        self.label_irrigation.grid(row = 2,column = 0, columnspan=2)
-
-        self.label_ventilation = customtkinter.CTkLabel(master=self.frame,   
-                                                        text=self.ventilation_state,
-                                                        text_font=("Roboto Medium", -70))
-        
-        self.label_ventilation.grid(row = 2,column = 2, columnspan=2)
+        self.label_listaUsuarios_title.grid(row = 1,column = 0, sticky="",columnspan=2)
 
         ##### Button states #######
-        self.button_irrigation_change = customtkinter.CTkButton(master=self.frame,
-                                                    text=self.__button_irrigation_text,
-                                                    command=self.irrigation_change)
-        self.button_irrigation_change.grid(row=3, column=0, columnspan=2)
+        self.button_create_user = customtkinter.CTkButton(master=self.frame,
+                                                    text="Crear usuario",
+                                                    command=self.create_user)
+        self.button_create_user.grid(row=3, column=0, columnspan=2)
 
 
         self.button_ventilation_change = customtkinter.CTkButton(master=self.frame,
@@ -165,14 +144,8 @@ class control():
         self.label_irrigation['text']=(self.irrigation_state)
         self.button_irrigation_change.set_text(self.__button_irrigation_text)
 
-    def irrigation_change(self):
-        if(self.irrigation_state == "ON"):
-            self.irrigation_state = "OFF"
-            self.__button_irrigation_text = "Activar"
-        else:
-            self.irrigation_state = "ON"
-            self.__button_irrigation_text = "Desactivar"
-        self.update()
+    def create_user(self):
+        pass
             
 
     def ventilation_change(self):
