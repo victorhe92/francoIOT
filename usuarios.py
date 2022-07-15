@@ -23,132 +23,43 @@ class control():
                        
         self.label_usuarios.grid(row = 0,column = 0, sticky="",columnspan=4,pady=10)
 
-        ###### Each title #####
-
-        self.label_listaUsuarios_title = customtkinter.CTkLabel(master=self.frame,   
-                                                        text="Lista de usuarios",
-                                                        text_font=("Roboto Medium", -20))
-                       
-        self.label_listaUsuarios_title.grid(row = 1,column = 0, sticky="",columnspan=2)
-
-        ##### Button states #######
+       
+         #####Create and delete users#######
         self.button_create_user = customtkinter.CTkButton(master=self.frame,
                                                     text="Crear usuario",
                                                     command=self.create_user)
-        self.button_create_user.grid(row=3, column=2, columnspan=2)
+        self.button_create_user.grid(row=3, column=2, columnspan=2, pady=25)
 
-
-        self.button_ventilation_change = customtkinter.CTkButton(master=self.frame,
-                                                    text=self.__button_ventilation_text,
-                                                    command=self.ventilation_change)
-        self.button_ventilation_change.grid(row=4, column=2, columnspan=2)
-
-         ######## TITLE 2############
-        self.label_itinerario = customtkinter.CTkLabel(master=self.frame,   
-                                                        text="Itinerario",
-                                                        text_font=("Roboto Medium", -20))
-                       
-        self.label_itinerario.grid(row = 4,column = 0, sticky="",columnspan=4,pady=10)
-
-
-        ####### Itineary irrigation label #########
-        self.label_itinerario_irrigation = customtkinter.CTkLabel(master=self.frame,   
-                                                        text="Riego\nhora inicio / hora fin ",
-                                                        text_font=("Roboto Medium", -15))
-                       
-        self.label_itinerario_irrigation.grid(row = 5,column = 0, sticky="",columnspan=2,pady=10)
-
-        self.label_itinerario_ventilation = customtkinter.CTkLabel(master=self.frame,   
-                                                        text="Ventilación\nhora inicio / hora fin ",
-                                                        text_font=("Roboto Medium", -15))
-                       
-        self.label_itinerario_ventilation.grid(row = 5,column = 2, sticky="",columnspan=2,pady=10)
-
-
-        ### Itinerary listbox irrigation  ####
-        self.list_irrigation_itinerary = tkinter.Listbox(master=self.frame,
-                                                        width=30,
-                                                        font=("Roboto Medium", -15),
-                                                        bg="white")
-
-
-        self.list_irrigation_itinerary.insert(1, "1) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(2, "2) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(3, "3) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(4, "4) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(5, "5) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(6, "6) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(7, "7) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(8, "8) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(9, "9) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(10, "10) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(11, "11) 15:00/15:10")
-        self.list_irrigation_itinerary.insert(12, "12) 15:00/15:10")
-
-        self.list_irrigation_itinerary.grid(row=6,column=0,columnspan=2)
-
-        self.list_ventilation_itinerary = tkinter.Listbox(master=self.frame,
-                                                        width=30,
-                                                        font=("Roboto Medium", -15),
-                                                        bg="white")
-
-        self.list_ventilation_itinerary.insert(1, "1) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(2, "2) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(3, "3) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(4, "4) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(5, "5) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(6, "6) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(7, "7) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(8, "8) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(9, "9) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(10, "10) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(11, "11) 15:00/15:10")
-        self.list_ventilation_itinerary.insert(12, "12) 15:00/15:10")
-
-        self.list_ventilation_itinerary.grid(row=6,column=2,columnspan=2)
-
-        self.frame_label_irrigation = customtkinter.CTkFrame(master=self.frame,
-                                                            corner_radius=20)
-
-        self.frame_label_irrigation.columnconfigure((0,1,2,3,4,5,6),weight=1)
-
-        self.frame_label_irrigation.grid(row=7,column=0,columnspan=2,pady=10,padx=10)
-
-        self.label_encendido_hora = customtkinter.CTkLabel(master=self.frame_label_irrigation,
-                                                text="Hora encendido")
-        self.label_encendido_hora.grid(row=0,column=0,columnspan=3,sticky="")
-
-        self.spinbox_irrigation_hour = tkinter.Spinbox(master=self.frame_label_irrigation,
-                                                        width=3)
-        self.spinbox_irrigation_hour.grid(row=1,column=0,pady=10,padx=10,sticky="w")
-
-        self.label_dos_puntos = customtkinter.CTkLabel(master=self.frame_label_irrigation,
-                                                text=":")
-        self.label_dos_puntos.grid(row=1,column=1)
-
+        self.entry_user = customtkinter.CTkEntry(master=self.frame,
+                                                    placeholder_text="Usuario")
         
+        self.entry_user.grid(row=3, column=0,rowspan=2)
 
-        self.spinbox_irrigation_minute = tkinter.Spinbox(master=self.frame_label_irrigation,
-                                                        width=3)
-        self.spinbox_irrigation_minute.grid(row=1,column=2,pady=10,padx=10)
+        self.entry_pass = customtkinter.CTkEntry(master=self.frame,
+                                                placeholder_text="Password")
 
-        self.label_hora_apagado = customtkinter.CTkLabel(master=self.frame_label_irrigation,
-                                                text="Hora apagado")
-        self.label_hora_apagado.grid(row=0,column=3,columnspan=3)
+        self.entry_pass.grid(row=3,column=1,rowspan=2)
+
+        self.button_delete_user = customtkinter.CTkButton(master=self.frame,
+                                                    text="Eliminar usuario",
+                                                    command=self.delete_user)
+        self.button_delete_user.grid(row=4, column=2, columnspan=2)
 
 
-    def button_send(self):
-        print(self.start_text.get())
+        ##### Label estados #####
 
-    def update(self):
-        self.label_irrigation['text']=(self.irrigation_state)
-        self.button_irrigation_change.set_text(self.__button_irrigation_text)
+        self.label_state = customtkinter.CTkLabel(master=self.frame,
+                                                 text = "Ingrese un usuario y password")
+        
+        self.label_state.grid(row=5,columnspan=4,pady=25)
+
+   
 
     def create_user(self):
         pass
             
 
-    def ventilation_change(self):
+    def delete_user(self):
         pass
         
 if __name__=="__main__":
