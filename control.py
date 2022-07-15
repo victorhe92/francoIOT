@@ -181,6 +181,6 @@ class control():
 if __name__=="__main__":
     app = mainFrame()
     windows_start = control(app)
-    app.show_frame(windows_start)
+    #app.show_frame(windows_start)
     #app.hide_frame()
     app.mainloop()
