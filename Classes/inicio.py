@@ -9,6 +9,10 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, 
 NavigationToolbar2Tk)
 
+from tkinter import *
+from tkinter import ttk
+from scipy import interpolate
+
 class inicio():
     
     t1 = 10
@@ -67,12 +71,16 @@ class inicio():
         self.fig = Figure(figsize=(1,1.70), dpi=100)
         self.fig.text(0.5, 0.92, "Station 1", ha='center', va='center_baseline', size=12)
     
-        
         self.ax = self.fig.add_subplot(111)
+        
+        self.ax.analog_data = np.random.normal(0, 10, 100)
+        self.ax.time_data = range(0,100,1)
         self.ax.set_xlabel('Time').set_fontsize(10)
         self.ax.set_ylabel('Temperature').set_fontsize(10)
         self.ax.plot(np.random.rand(10))
-        
+        self.ax.model=interpolate.interp1d(self.ax.time_data, self.ax.analog_data)
+        self.ax.xs=np.linspace(0,10,10000)
+        self.ax.ys= self.ax.model(self.ax.xs)
         
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.frame_station1_1)
        
