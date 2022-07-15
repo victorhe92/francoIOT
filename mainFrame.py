@@ -14,7 +14,7 @@ class mainFrame(customtkinter.CTk):
         self.title("Microtunel control")
         self.geometry(f"{mainFrame.WIDTH}x{mainFrame.HEIGHT}")
         self.protocol("WM_DELETE_WINDOW", self.on_closing)  # call .on_closing() when app gets closed
-        self.overrideredirect(1)
+        #self.overrideredirect(1)
         
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
