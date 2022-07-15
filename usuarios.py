@@ -4,10 +4,7 @@ from matplotlib.pyplot import grid
 from mainFrame import mainFrame
 
 class control():
-    irrigation_state = "ON"
-    ventilation_state = "OFF"
-    __button_irrigation_text = "Desactivar"
-    __button_ventilation_text = "ON"
+    
     def __init__(self,master):
 
         ######### GENERAL FRAME #########
@@ -36,7 +33,8 @@ class control():
         self.entry_user.grid(row=3, column=0,rowspan=2)
 
         self.entry_pass = customtkinter.CTkEntry(master=self.frame,
-                                                placeholder_text="Password")
+                                                placeholder_text="Password",
+                                                show="*")
 
         self.entry_pass.grid(row=3,column=1,rowspan=2)
 
